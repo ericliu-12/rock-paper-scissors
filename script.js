@@ -18,3 +18,20 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "scissors" && computerSelection === "paper") return "You Win! Scissors beats Paper"
     if (playerSelection === "scissors" && computerSelection === "scissors") return "You Tie! Scissors ties Scissors"
 }
+
+function playGame() {
+    let win = 0, tie = 0, loss = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Enter Rock, Paper, or Scissors");
+        let currentRound = playRound(playerSelection, getComputerChoice());
+        console.log(currentRound);
+        let result = currentRound.charAt(4);
+        console.log(result);
+        if (result === "W") win++;
+        else if (result == "T") tie++;
+        else loss++;
+    }
+    console.log(`Your results are: ${win} wins, ${tie} ties, and ${loss} losses`);
+}
+
+playGame();
